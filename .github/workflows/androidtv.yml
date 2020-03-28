@@ -14,8 +14,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag building:latest
     - name: Build All
-      run: docker run --rm -v ${PWD}:/code building:latest
+      run: docker run --rm -v ${PWD}:/repo building:latest
     - uses: actions/upload-artifact@v1
       with:
         name: androidtv
-        path: /app/build/outputs/apk/*
+        path: /dist
